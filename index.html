@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    </head>
+    <body>
+        <div class="container">
+        <div class="left">
+            <label><i class="fa-brands fa-html5"></i>HTML</label>
+            <textarea id="htmlin" rows="5" cols="6" onkeyup="run()"></textarea>
+            <label><i class="fa-brands fa-css3-alt"></i>CSS</label>
+            <textarea id="cssin" onkeyup="run()"></textarea>
+            <label><i class="fa-brands fa-square-js"></i>JavaScript</label>
+            <textarea id="jsin" onkeyup="run()"></textarea>
+        </div>
+               <div class="right">
+                <label style="height:7%;margin-left:0.9em; font-family: 'RocknRoll One', sans-serif;"><i class="fa-sharp fa-solid fa-play" style="margin-right:.7em;margin-top:1rem;font-size:100%;"></i>Output</label>
+                <iframe id="output"></iframe>
+            </div>
+    </div>
+    <script>
+        function run()
+        {
+        let htmlcode = document.getElementById("htmlin").value;
+        let csscode= document.getElementById("cssin").value;
+        let jscode = document.getElementById("jsin").value;
+        let output = document.getElementById("output");
+        output.contentDocument.body.innerHTML = htmlcode;
+        output.contentDocument.body.innerHTML=htmlcode+"<style>"+csscode+"</style>";
+        output.contentWindow.eval(jscode);
+        }
+      </script>
+    </body>
+    </html>
